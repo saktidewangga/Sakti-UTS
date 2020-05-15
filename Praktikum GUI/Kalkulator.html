@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+    .container{
+        width:400px;
+        height: 400px;
+        /* padding: 10px 10px 10px 10px;
+        box-sizing: border-box; */
+        border: 1px solid black; /*dotted solid dashed double*/
+        margin:50px auto;
+        background-color: #4A5A3F;
+        border-radius: 10px;
+    }
+
+    .judul{
+        width:400px;
+        height: 50px;
+        padding-top: 10px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .bilangan1{
+        width: 200px;
+        height: 30px;
+        margin-left: 100px;
+        margin-top: 70px;
+        padding-top: 10px;
+        border-radius: 10px;
+        text-align: center;
+        background-color: #E1D5A5;
+    }
+
+    .bilangan2{
+        width: 200px;
+        height: 30px;
+        margin-left: 100px;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-radius: 10px;
+        text-align: center;
+        background-color: #E1D5A5;
+    }
+
+   .button{
+        width: 400px;
+        height: 60px;
+        margin-top: 50px;
+        padding-top: 5px;
+        background-color: #252C25;
+        text-align: center;
+    }
+
+    .hasil{
+        margin-top: 1px;
+        padding-top: 1px;
+        text-align: center;
+    }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="judul">
+            <h1>Kalkulator JavaScript</h1>
+        </div>
+
+        <div class="bilangan1">
+            <input type="text" id="bil1" placeholder="Masukkan Angka" onclick="">
+        </div>
+
+        <div class="bilangan2">
+            <input type="text" id="bil2" placeholder="Masukkan Angka" onclick="">
+        </div>
+
+        <div class="button">
+            <p>
+                <button type="button" onclick="operasitambah()">Tambah</button>
+                <button type="button" onclick="operasikurang()">Kurang</button>
+                <button type="button" onclick="operasikali()">Kali</button>
+                <button type="button" onclick="operasibagi()">Bagi</button>
+            <p>
+
+        </div>
+
+        <div class="hasil">
+            <h1 id="hasiltext">Hasil</h1>
+        </div>
+
+    </div>
+    
+</body>
+
+    <script>
+        function operasitambah(){
+            var bilangan1=document.getElementById("bil1").value;
+            var bilangan2=document.getElementById("bil2").value;
+            var bil1=Number(bilangan1);
+            var bil2=Number(bilangan2);
+            var hasil=bil1+bil2;
+
+            document.getElementById("hasiltext").innerHTML=hasil;
+        }
+
+        function operasikurang(){
+            var bilangan1=document.getElementById("bil1").value;
+            var bilangan2=document.getElementById("bil2").value;
+            var bil1=Number(bilangan1);
+            var bil2=Number(bilangan2);
+            var hasil=bil1-bil2;
+
+            document.getElementById("hasiltext").innerHTML=hasil;
+        }
+
+        function operasikali(){
+            var bilangan1=document.getElementById("bil1").value;
+            var bilangan2=document.getElementById("bil2").value;
+            var bil1=Number(bilangan1);
+            var bil2=Number(bilangan2);
+            var hasil=bil1*bil2;
+
+            document.getElementById("hasiltext").innerHTML=hasil;
+        }
+
+        function operasibagi(){
+            var bilangan1=document.getElementById("bil1").value;
+            var bilangan2=document.getElementById("bil2").value;
+            var bil1=Number(bilangan1);
+            var bil2=Number(bilangan2);
+            var hasil=bil1/bil2;
+
+            document.getElementById("hasiltext").innerHTML=hasil;
+        }
+    </script>
+
+</html>

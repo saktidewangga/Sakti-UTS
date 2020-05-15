@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="vue.js"></script>
+    <style>
+.header{
+    height: 50px;
+    width: 100%;
+    background-color:green;
+    position:fixed;
+    top:0;
+    left:0;
+    padding: 5px;
+}
+.header h1 {
+    font-size:large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:antiquewhite ;
+}
+
+.mainproduct{
+    margin-top: 100px;
+    width: 70%;
+    height: 100%;
+    float:left;
+
+}
+.cart{
+    margin-top: 100px;
+    width: 30%;
+    height: 100%;
+    float:left;
+
+}
+.listproduk {
+    width: 150px;
+    height: 200px;
+    float:left;
+    margin:5px 5px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    
+    }
+.thumbnail {
+    width: 100%;
+    height: 50%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+
+tr:hover {background-color:#f5f5f5;}
+
+
+    </style>
+
+</head>
+
+<body>
+    
+<div class="header">
+    <h1> VokasiPedia</h1>
+</div>
+
+<div id="container">
+
+<div class="mainproduct">
+
+<div class="listproduk" v-for="motorku in motor">
+
+<div class="thumbnail"> 
+
+    <img v-bind:src="motorku.image" width="125px" height="100px" >
+</div>
+
+{{motorku.merek}}
+<br>
+Harga : {{motorku.harga}}
+
+<button v-on:click="addCart(motorku.image, motorku.merek, motorku.harga)" type="button">Beli</button>
+
+</div>
+
+</div>
+<div class="cart">
+    Keranjang Belanja
+<br>
+
+<table>
+
+    <tr v-for="(image, index) in keranjangimage">
+        <td><img v-bind:src="image" width="100px" height="100px"></td>
+        <td><button v-on:click="removeCart(index)" type="button">X</button></td>
+   
+    <!-- <tr v-for="merek in keranjangmerek">
+        <td>{{merek}}</td>
+      <td><button v-on:click="removeCart(index)" type="button">X</button></td> -->
+
+    <!-- <tr v-for="harga in keranjangharga">
+        <td>Rp. {{harga}},-</td>
+        <td><button v-on:click="removeCart(index)" type="button">X</button></td> -->
+      
+    </tr>
+
+
+  </table>
+  <label> <input type="checkbox" v-model:value="showBonus">Show Bonus</label>
+        <div class="detail" v-if="showBonus">
+            <!-- <p v-if="qty >= 10">Maaf kamu hanya boleh beli {{ qty }} aja yahh.. karna stok terbatas</p>
+            <p v-else-if="qty >= 5">Whooaa kamu memborong setengah stok!</p>
+            <p v-else-if="qty >= 2">selamat anda mendapatkan bonus karena membeli {{ qty }} buku</p>
+            <p v-else>Beli lebih banyak agar kamu mendapatkan bonus ;)</p> -->
+
+            <div v-if="qty >= 4"><h1>Whoaa sultan nich!</h1>
+                <img src="sultan1.jpg"  width=300px height="250px">
+            </div>
+            <div v-else-if="qty >= 2"><h1>Beli lagi dapat bonus ;)</h1>
+                <img src="100rb.jpg" width=200px height="200px">
+            </div>
+            <h1 v-else>Selamat Belanja</h1>
+        </div>
+ <!-- {{keranjangimage}} -->
+ <!-- {{keranjangmerek}} -->
+ <!-- {{keranjangharga}} -->
+
+ 
+ <!-- Trigger/Open The Modal -->
+<!-- <button id="myBtn">Buka Bonusmu Disini</button> -->
+
+<!-- The Modal -->
+<!-- <div id="myModal" class="modal"> -->
+
+  <!-- Modal content -->
+  <!-- Modal content -->
+<!-- <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Modal Header</h2>
+    </div>
+    <label> <input type="checkbox" v-model:value="showBonus">Show Bonus</label>
+        <div class="detail" v-if="showBonus">
+    <div v-if="qty >=4"class="modal-body">
+        <h1>Whoaa sultan lagi borong motor :)</h1>
+        <img src="sultan1.jpg"  width=300px height="250px">
+    </div>
+    <div v-else-if="qty >=2"class="modal-body">
+        <h1>Ayoo lagi dapatkan bonusnya</h1>
+        <img src="100rb.jpg"  width=300px height="250px">
+    </div>
+    <div class="modal-footer">
+      <h3>Modal Footer</h3>
+    </div>
+  </div>
+
+</div> -->
+
+</div>
+
+
+</div>
+
+<script>
+
+    var vm = new Vue({   
+             el: '#container',
+             data: {
+                 motor:[
+                     {merek:'Supra',harga:5500000,image:'https://cdn0-production-images-kly.akamaized.net/QbYVo9CS2CJxhhhFQJMnDmLQ4q4=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2747152/original/088219600_1552155797-AHM_Honda_Supra_X_125_FI._06_.jpg'}
+                     ,{merek:'Mio',harga:3400000,image:'https://d2pa5gi5n2e1an.cloudfront.net/global/images/product/motorcycle/Yamaha_Mio/Yamaha_Mio_L_1.jpg'}
+                     ,{merek:'NMax',harga:2500000,image:'https://d2pa5gi5n2e1an.cloudfront.net/global/images/product/motorcycle/Yamaha_NMAX_2018/Yamaha_NMAX_2018_L_1.jpg'}
+                     ,{merek:'Shogun',harga:3400000,image:'https://d2pa5gi5n2e1an.cloudfront.net/webp/global/images/product/motorcycle/Suzuki_Shogun_Axelo125/Suzuki_Shogun_Axelo125_L_1.jpg'}
+                     ,{merek:'Satria',harga:1400000,image:'https://www.suzuki.co.id//assets/static/img/variant/Satria-WhiteBlue.png'}
+                 ],
+                 keranjangimage: [],
+                 keranjangmerek:[],
+                 keranjangharga:[],
+                 showBonus:true,
+                 qty:0
+               
+             },
+
+ computed: {
+  total() {
+    return this.keranjangharga.reduce(function (sum, item) {
+        return sum + item
+    }, 0)
+  }
+},
+             methods: {
+    
+                 addCart:function(image, merek, harga){
+                     this.keranjangimage.push(image)
+                     this.keranjangmerek.push(merek)
+                     this.keranjangharga.push(harga)
+                     this.qty+=1;
+                 },
+                 removeCart:function(index){
+                    this.keranjangimage.splice(index, 1)
+                    this.keranjangmerek.splice(index, 1)
+                    this.keranjangharga.splice(index, 1)
+                    this.qty-=1;
+                 
+                 }
+             }    
+        })
+    
+     // Get the modal
+// var modal = document.getElementById("myModal");
+
+ // Get the button that opens the modal
+// var btn = document.getElementById("myBtn");
+
+ // Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("close")[0];
+
+ // When the user clicks on the button, open the modal
+// btn.onclick = function() {
+//   modal.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+// span.onclick = function() {
+//   modal.style.display = "none";
+// }
+
+ // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// }
+    </script>
+
+
+
+</body>
+</html>

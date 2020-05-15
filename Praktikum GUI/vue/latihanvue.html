@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="vue.js"></script>
+</head>
+<body>
+<!-- satu arah -->
+    <!-- <div id="app">
+        <input type="text" v-bind:value="message"></input>
+
+        <p>{{ message }}</p>
+    </div> -->
+    
+<!-- dua arah -->
+    <div id="app">
+        <input type="text" v-model:value="message"></input>
+
+        <p>{{ message }}</p>
+    </div>
+
+    <!-- <div id="app">
+        {{ pesan }}
+    </div> -->
+
+    <script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello World!'
+  }
+})
+    </script>
+    
+</body>
+</html>

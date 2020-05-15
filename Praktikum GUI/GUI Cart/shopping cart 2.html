@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Mart</title>
+
+    <script src="vue.js"></script>
+    ​<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+
+.header{
+    height: 50px;
+    width: 100%;
+    background-color: gray;
+    position:fixed;
+    top:0;
+    left:0;
+    padding: 5px;
+}
+.header h1 {
+    font-size:large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:antiquewhite ;
+}
+
+.mainproduct{
+    margin-top: 100px;
+    width: 70%;
+    height: 100%;
+    float:left;
+    position: relative;
+
+}
+.cart{
+    margin-top: 100px;
+    width: 30%;
+    height: 100%;
+    float:left;
+
+}
+.listproduk {
+    width: 150px;
+    height: 200px;
+    float:left;
+    margin:5px 5px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    
+    }
+.thumbnail {
+    width: 100%;
+    height: 50%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.popup{
+    height: 200px;
+    width: 200px;
+    opacity: 0.8;
+    position: absolute;
+    border: black solid 2px;
+    right: 400px;
+    top: 320px;
+    background-color: whitesmoke;
+    display: block;
+}
+.popup1{
+    height: 200px;
+    width: 200px;
+    opacity: 0.8;
+    position: absolute;
+    border: black solid 2px;
+    right: 400px;
+    top: 320px;
+    background-color: whitesmoke;
+    display: block;
+}
+th, td{
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid white;
+}
+
+tr:hover {background-color: white;}
+
+</style>
+</head>
+
+<body>
+    
+<div class="header">
+    <h1> LAPAK-KU </h1>
+</div>
+
+
+<div class="container" id="container">
+
+<div class="mainproduct">
+
+<div class="listproduk" v-for="sepatuku in sepatu">
+
+    <!-- <div class="thumbnail"> 
+        <img v-bind:src="sepatuku.image" width="65%" >
+    </div>
+    <br><br>
+    {{sepatuku.merek}}
+    <br>
+    Harga : {{sepatuku.harga}}
+    <br>
+    <button v-on:click="addCart(sepatuku.image, sepatuku.harga, sepatuku.merek)" type="button">Beli</button> -->
+
+</div>
+
+</div>
+<div class="cart">
+    Keranjang Belanja
+<br>
+
+<!-- <table>
+    <tr v-for="(image, index) in keranjangimage">
+        <td><img v-bind:src="image" width="100px" height="100px"></td>
+        <td><button v-on:click="removeCart(index)" type="button">X</button></td>
+    </tr>
+    {{qty}}
+</table> -->
+
+  <!-- {{keranjangimage}}
+  {{keranjangharga}}
+  {{keranjangmerek}} -->
+
+  {{sepatu}}
+
+
+  
+</div>
+
+    <!-- <div class="popup" v-if="qty>=4">
+        <p>Buset, mantep pemborong nihh :)</p>
+        <img src="https://sugengrawwuh.files.wordpress.com/2014/11/smileys.jpg" width="150px" height="100px">
+    </div>
+    <div class="popup1" v-if="qty>=2">
+        <p>Ayo beli lagi dong, your dompet kan tebel</p>
+        <img src="https://sugengrawwuh.files.wordpress.com/2014/11/smileys.jpg" width="150px" height="100px">
+    </div> -->
+
+</div>
+
+<script>
+
+    var vm = new Vue({   
+             el: '#container',
+             data: {
+                //  sepatu:[
+                //  {merek:'Converse Chuck',harga:764150,image:'https://dynamic.zacdn.com/YioUI76FHfqsMrjBj9t1uw2_JSA=/fit-in/236x345/filters:quality(90):fill(ffffff)/http://static.id.zalora.net/p/converse-3529-7839061-2.jpg'}
+                //      ,{merek:'Vans U Old Skool',harga:749000,image:'https://dynamic.zacdn.com/itsLj6688kj-xqAnPNj7No8iLhU=/fit-in/236x345/filters:quality(90):fill(ffffff)/http://static.id.zalora.net/p/vans-8631-7725061-2.jpg'}
+                //      ,{merek:'Adidas',harga:2500000,image:'https://dynamic.zacdn.com/yOFqi3-IXz8dGh5KNLeziW8kkWk=/fit-in/236x345/filters:quality(90):fill(ffffff)/http://static.id.zalora.net/p/adidas-8434-9956102-2.jpg'}
+                //      ,{merek:'Converse',harga:3400000,image:'https://dynamic.zacdn.com/HyjDOSDKjAcMFsWxSo0QcBXZ29A=/fit-in/236x345/filters:quality(90):fill(ffffff)/http://static.id.zalora.net/p/panarybody-9368-4800922-2.jpg'}
+                //      ,{merek:'Adidas',harga:1400000,image:'https://dynamic.zacdn.com/20cFYI3Rf2C-FLznBs2UnOSlMw4=/fit-in/236x345/filters:quality(90):fill(ffffff)/http://static.id.zalora.net/p/910-0223-1819122-2.jpg'}
+                //      ,{merek:'Vans',harga:1400000,image:'https://dynamic.zacdn.com/ZKgR2fqruqv13Idrq7Fo7oPDQlU=/fit-in/236x345/filters:quality(90):fill(ffffff)/http://static.id.zalora.net/p/adidas-9904-8146102-2.jpg'}
+                //      ,{merek:'Converse',harga:1400000,image:'https://dynamic.zacdn.com/I0kHsL7ahLF1j_XWHa212AaaTQ4=/fit-in/236x345/filters:quality(90):fill(ffffff)/http://static.id.zalora.net/p/catenzo-7286-2110822-2.jpg'}
+                //      ,{merek:'Adidas',harga:1400000,image:'https://dynamic.zacdn.com/hQIOv_TCnjIdjL4juwCjAQhI0hU=/fit-in/236x345/filters:quality(90):fill(ffffff)/http://static.id.zalora.net/p/adidas-0158-2050032-2.jpg'}
+                //      ,{merek:'Adidas',harga:1400000,image:'https://dynamic.zacdn.com/UBhwQJSPAAISCjOMrKkf2TKn1OA=/fit-in/236x345/filters:quality(90):fill(ffffff)/http://static.id.zalora.net/p/panarybody-7757-7512922-2.jpg'}
+                //      ,{merek:'Adidas',harga:1400000,image:'https://dynamic.zacdn.com/GXGNVjaV8miDPb-vb_-KjvKQIIE=/fit-in/236x345/filters:quality(90):fill(ffffff)/http://static.id.zalora.net/p/catenzo-3658-9046822-2.jpg'}
+                //  ],
+                sepatu:[],
+                 keranjangharga:[],
+                 keranjangmerek:[],
+                 keranjangimage:[],
+                 keterangan:true,
+                 qty:0
+               
+             },
+
+          computed: {
+    total() {
+    return this.keranjangharga.reduce(function (sum, item) {
+        return sum + item
+    }, 0)
+  }
+},  
+             methods: {
+    
+                 addCart:function(image){
+                     this.keranjangimage.push(image);
+                    //  this.keranjangharga.push(harga);
+                    //  this.keranjangmerek.push(merek);
+                     this.qty +=1;
+                 },
+                 removeCart:function(index){
+                     this.keranjangmerek.splice(index,1)
+
+                     this.keranjangharga.splice(index,1)
+                 
+                     this.keranjangimage.splice(index,1)
+
+                     this.qty -=1;
+                 }
+             },
+
+             upDate: function(){
+
+                axios.get('http://localhost/gui/api.php').then(response => this.sepatu=response.data['result'])
+
+             },
+
+             mounted(){
+                //  axios.get('https://my-json-server.typicode.com/milleniasilvianthie/restapiserver/db').then(response => this.sepatu=response.data['produk']);
+                
+                this.upDate();
+                this.timer = setInterval(this.upDate, 1000)
+
+
+             }
+
+        })
+
+    </script>
+
+</body>
+</html>

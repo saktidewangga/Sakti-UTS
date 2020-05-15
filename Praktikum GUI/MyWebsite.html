@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Websitenya Sakti</title>
+
+<style>
+   
+    .mode{
+        background-color: black;
+        width: 100px;
+        height: 100px;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        text-align: center;
+        border-radius: 10px;
+        border: black;
+    }
+
+    .ribbon{
+        background-image: url(twitter-ribbon.png);
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: -10px;
+        left: 700px;
+    }
+
+    .logo{
+        height: 170px;
+        width: 60px;
+        margin: 10px auto;
+        background-color: blueviolet;
+    }
+
+    .container{
+        width:800px;
+        height: 1250px;
+        /* padding: 10px 10px 10px 10px;
+        box-sizing: border-box; */
+        border: 1px solid black; /*dotted solid dashed double*/
+        margin:50px auto;
+        background-color: #3A757C;
+    }
+
+    .judul{
+        border: 1px solid black; /*dotted solid dashed double*/
+        width:800px;
+        height: 100px;
+        padding-left: 20px;
+        padding-top: 10px;
+        box-sizing: border-box;
+        background-color: #68A4AA;
+    }
+
+    .menu{
+        border: 1px solid black; /*dotted solid dashed double*/
+        width:800px;
+        height: 40px;
+        padding-left: 20px;
+        padding-top: 10px;
+        box-sizing: border-box;
+        /* margin:auto; */
+    }
+
+    .banner{
+        border: 1px solid black; /*dotted solid dashed double*/
+        width:800px;
+        height: 300px;
+        padding: 10px 10px 10px 10px;
+        box-sizing: border-box;
+
+        background-image: url("7.jpg");
+        background-size: cover;
+        /* margin:auto; */
+    }
+
+    .judulartikel{
+        width:  800px;
+        height: 80px;
+        padding-left:20px;
+    }
+
+    .Konten{
+        width: 800px;
+        height: 400px;
+        padding: 10px 10px 10px 10px;
+        overflow: auto;
+        float: left;
+        box-sizing: border-box;
+        background-color: #C7DFC9;
+    }
+
+    .Konten img{
+        width: 100px;
+        height: 100px;
+        margin-left: 0px;
+        float: left;
+    
+    }
+
+    .gallery{
+        background-color: blue;
+        width: 190px;
+        height: 100px;
+        margin: 5px 5px 5px 5px;
+        float: left;
+        overflow: auto;
+        background-image: url("1.jpg");
+        background-size: cover;
+    }
+
+    .cobaevent{
+        width: 75px;
+        height: 75px;
+        background-color: darkgreen;
+        border-radius: 10px;
+    }
+
+    .cobaevent1{
+        width: 75px;
+        height: 75px;
+        background-color: darkred;
+        border-radius: 10px;
+    }
+
+    .footer{
+        padding-top: 20px;
+        text-align: center;
+    }
+    /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+</style>
+</head>
+<body>
+
+    <div class="mode">
+        <br>
+        <button type="button" onclick="ubahwarna_dark()">Dark Mode</button>
+        <br>
+        <br>
+        <button type="button" onclick="ubahwarna_light()">Light Mode</button>
+        <br>
+    </div>
+
+<div class="container">
+    <div class="ribbon"></div>
+    <div class="judul"> 
+       <marquee><h1>Selamat Datang di Universitas Brawijaya</h1></marquee>
+    </div>
+    <div class="menu"> 
+        <a href="#">Home</a>
+        <a href="#">Profil</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div class="banner">
+    </div>
+
+    <div class="judulartikel">
+        <h1>Judul Artikel</h1>
+        <P> oleh: Sakti Dewangga</P>
+    </div>
+
+    <div id="Konten" class="Konten">
+        <img src="Universitas_Brawijaya.png" width="300px" height="300px">
+        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis possimus cum soluta quia molestias necessitatibus magnam, deserunt blanditiis mollitia veniam sunt perspiciatis quam ipsa nam in laudantium velit, hic iusto?</P>
+        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis possimus cum soluta quia molestias necessitatibus magnam, deserunt blanditiis mollitia veniam sunt perspiciatis quam ipsa nam in laudantium velit, hic iusto?</P>
+        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis possimus cum soluta quia molestias necessitatibus magnam, deserunt blanditiis mollitia veniam sunt perspiciatis quam ipsa nam in laudantium velit, hic iusto?</P>
+        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis possimus cum soluta quia molestias necessitatibus magnam, deserunt blanditiis mollitia veniam sunt perspiciatis quam ipsa nam in laudantium velit, hic iusto?</P>
+        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis possimus cum soluta quia molestias necessitatibus magnam, deserunt blanditiis mollitia veniam sunt perspiciatis quam ipsa nam in laudantium velit, hic iusto?</P>
+        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis possimus cum soluta quia molestias necessitatibus magnam, deserunt blanditiis mollitia veniam sunt perspiciatis quam ipsa nam in laudantium velit, hic iusto?</P>
+        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis possimus cum soluta quia molestias necessitatibus magnam, deserunt blanditiis mollitia veniam sunt perspiciatis quam ipsa nam in laudantium velit, hic iusto?</P>
+        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis possimus cum soluta quia molestias necessitatibus magnam, deserunt blanditiis mollitia veniam sunt perspiciatis quam ipsa nam in laudantium velit, hic iusto?</P>
+        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis possimus cum soluta quia molestias necessitatibus magnam, deserunt blanditiis mollitia veniam sunt perspiciatis quam ipsa nam in laudantium velit, hic iusto?</P>
+        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis possimus cum soluta quia molestias necessitatibus magnam, deserunt blanditiis mollitia veniam sunt perspiciatis quam ipsa nam in laudantium velit, hic iusto?</P>
+        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis possimus cum soluta quia molestias necessitatibus magnam, deserunt blanditiis mollitia veniam sunt perspiciatis quam ipsa nam in laudantium velit, hic iusto?</P>
+
+    </div>
+    <div class="gallery"></div>
+    <div class="gallery"></div>
+    <div class="gallery"></div>
+    <div class="gallery"></div>
+    <div class="gallery"></div>
+    <div class="gallery"></div>
+    <div class="gallery"></div>
+    <div class="gallery"></div>
+    
+</div>
+<div calss ="footer">
+    <p class="copyright"> Copyright 2020</p>
+</div>
+<div id="cobaevent" class="cobaevent" onmouseup="divkelakuan()" onmousedown="divkelakuan1()"></div>
+</body>
+
+    <script>
+        function ubahwarna_dark(){
+            document.getElementById('Konten').style.backgroundColor="black";
+            document.getElementById('Konten').style.color="white";
+        }
+        function ubahwarna_light(){
+            document.getElementById('Konten').style.backgroundColor="white";
+            document.getElementById('Konten').style.color="black";
+        }
+        function divkelakuan(){
+        document.getElementById("cobaevent").className="cobaevent1";
+    }
+    function divkelakuan1(){
+        document.getElementById("cobaevent").className="cobaevent";
+    }
+    </script>
+
+</html>

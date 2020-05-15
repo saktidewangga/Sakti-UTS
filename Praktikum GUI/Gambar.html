@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gambar</title>
+
+    <style>
+
+    .container{
+        width:590px;
+        height: 300px;
+        background-color: #00415C;
+        border: 5px solid #027A79;
+    }
+
+    .main{
+        width: 600px;
+        height: 100px;
+        background-color: #027A79;
+    }
+    
+    .galery1{
+        background-image: url(gal1.jpg);
+        width: 140px;
+        height: 90px;
+        margin: 5px 5px 5px 5px;
+        float: left;
+        background-size: cover;
+
+    }
+
+    .galery2{
+        background-image: url(gal2.jpg);
+        width: 140px;
+        height: 90px;
+        margin: 5px 5px 5px 5px;
+        float: left;
+        background-size: cover;
+    }
+
+    .galery3{
+        background-image: url(gal3.jpg);
+        width: 140px;
+        height: 90px;
+        margin: 5px 5px 5px 5px;
+        float: left;
+        background-size: cover;
+    }
+
+    .galery4{
+        background-image: url(gal4.jpg);
+        width: 140px;
+        height: 90px;
+        margin: 5px 5px 5px 5px;
+        float: left;
+        background-size: cover;
+    }
+
+    </style>
+
+    <script>
+        function openGam1(){
+            document.getElementById("con1").style.backgroundImage= "url(gal1.jpg)";
+        }
+        function openGam2(){
+            document.getElementById("con1").style.backgroundImage= "url(gal2.jpg)";
+        }
+        function openGam3(){
+            document.getElementById("con1").style.backgroundImage= "url(gal3.jpg)";
+        }
+        function openGam4(){
+            document.getElementById("con1").style.backgroundImage= "url(gal4.jpg)";
+        }
+    </script>
+
+</head>
+<body>
+    
+    <div id="con1" class="container"></div>
+
+    <div class="main">
+        <div id="gam1" class="galery1" onclick="openGam1()"></div>
+        <div class="galery2" onclick="openGam2()"></div>
+        <div class="galery3" onclick="openGam3()"></div>
+        <div class="galery4" onclick="openGam4()"></div>
+    </div>
+
+</body>
+</html>
